@@ -1,5 +1,6 @@
 package com.miramontes;
 
+import com.miramontes.modules.CalculatorModule;
 import config.CalculatorConfiguration;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Bootstrap;
@@ -20,6 +21,7 @@ public class CalculatorApplication extends Application<CalculatorConfiguration> 
     public void initialize(Bootstrap<CalculatorConfiguration> bootstrap){
         bootstrap.addBundle(GuiceBundle.builder()
                 .enableAutoConfig(getClass().getPackage().getName())
+                .modules(new CalculatorModule())
                 .build());
     }
 }
