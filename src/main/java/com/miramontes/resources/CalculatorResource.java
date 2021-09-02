@@ -3,6 +3,7 @@ package com.miramontes.resources;
 import com.codahale.metrics.annotation.Timed;
 import com.miramontes.services.CalculatorService;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -15,11 +16,14 @@ import java.util.stream.Collectors;
 @Produces(MediaType.TEXT_PLAIN)
 public class CalculatorResource {
 
+    @Inject
+    private CalculatorService calculatorService;
+
     @GET
     @Timed
     @Path("/add/{numbers:.*}")
     public Integer add(@PathParam("numbers") @DefaultValue("0") String numbers){
-        return CalculatorService.add(parseNumbers(numbers));
+        return calculatorService.add(parseNumbers(numbers));
     }
 
     private List<Integer> parseNumbers(String numbers) {
@@ -38,14 +42,14 @@ public class CalculatorResource {
     @Timed
     @Path("/subtract/{numbers:.*}")
     public Long subtract(@PathParam("numbers") @DefaultValue("0") String numbers){
-        return CalculatorService.subtract(parseNumbers(numbers));
+        return calculatorService.subtract(parseNumbers(numbers));
     }
 
     @GET
     @Timed
     @Path("/multiply/{numbers:.*}")
     public Long multiply(@PathParam("numbers") @DefaultValue("0") String numbers){
-        return CalculatorService.multiply(parseNumbers(numbers));
+        return calculatorService.multiply(parseNumbers(numbers));
     }
 
 }
