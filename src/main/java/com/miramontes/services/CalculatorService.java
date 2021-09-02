@@ -1,4 +1,4 @@
-package com.miramontes;
+package com.miramontes.services;
 
 import java.util.List;
 import java.util.Objects;
