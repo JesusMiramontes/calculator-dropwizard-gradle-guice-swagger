@@ -1,13 +1,10 @@
+/* (C) 2021 */
 package com.miramontes;
 
-import com.codahale.metrics.health.HealthCheck;
-import com.miramontes.services.CalculatorService;
+import javax.inject.Singleton;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import ru.vyarus.dropwizard.guice.module.installer.feature.health.NamedHealthCheck;
-
-import javax.inject.Inject;
-import javax.inject.Singleton;
 
 @Singleton
 public class CalculatorHealthCheck extends NamedHealthCheck {
@@ -16,7 +13,8 @@ public class CalculatorHealthCheck extends NamedHealthCheck {
 
     @Override
     protected Result check() throws Exception {
-        LOG.info("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!HealthCheck triggered!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        LOG.info(
+                "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!HealthCheck triggered!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         return Result.healthy();
     }
 

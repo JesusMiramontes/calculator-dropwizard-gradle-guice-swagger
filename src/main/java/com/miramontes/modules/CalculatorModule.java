@@ -1,7 +1,7 @@
+/* (C) 2021 */
 package com.miramontes.modules;
 
 import com.miramontes.CalculatorHealthCheck;
-import com.miramontes.resources.CalculatorResource;
 import config.CalculatorConfiguration;
 import ru.vyarus.dropwizard.guice.module.support.DropwizardAwareModule;
 

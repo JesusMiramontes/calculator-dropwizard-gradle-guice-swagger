@@ -1,3 +1,4 @@
+/* (C) 2021 */
 package com.miramontes.resources;
 
 import javax.inject.Singleton;
@@ -12,7 +13,7 @@ public class HelloWorldResource {
 
     @GET
     @Path("/{name:.*}")
-    public Response helloWorld(@PathParam("name") String name){
+    public Response helloWorld(@PathParam("name") String name) {
         return Response.ok("Hello " + name).build();
     }
 }
