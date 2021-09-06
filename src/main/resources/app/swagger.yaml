@@ -1,0 +1,75 @@
+openapi: 3.0.1
+info:
+  title: Simple calculator api
+  description: Using Dropwizard, gradle, google guice, swagger, open api
+servers:
+  - url: /
+paths:
+  /add/{numbers}:
+    get:
+      operationId: add
+      parameters:
+        - name: numbers
+          in: path
+          required: true
+          schema:
+            type: string
+            default: 3/2/1
+      responses:
+        default:
+          description: default response
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int32
+  /multiply/{numbers}:
+    get:
+      operationId: multiply
+      parameters:
+        - name: numbers
+          in: path
+          required: true
+          schema:
+            type: string
+            default: 3/2
+      responses:
+        default:
+          description: default response
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int64
+  /subtract/{numbers}:
+    get:
+      operationId: subtract
+      parameters:
+        - name: numbers
+          in: path
+          required: true
+          schema:
+            type: string
+            default: 8/2
+      responses:
+        default:
+          description: default response
+          content:
+            text/plain:
+              schema:
+                type: integer
+                format: int64
+  /hello/{name}:
+    get:
+      operationId: helloWorld
+      parameters:
+        - name: name
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        default:
+          description: default response
+          content:
+            text/plain: {}
