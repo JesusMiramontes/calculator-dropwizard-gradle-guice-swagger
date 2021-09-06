@@ -21,7 +21,7 @@ public class CalculatorResource {
     @GET
     @Timed
     @Path("/add/{numbers:.*}")
-    public Integer add(@PathParam("numbers") @DefaultValue("0") String numbers) {
+    public Integer add(@PathParam("numbers") @DefaultValue("3/2/1") String numbers) {
         return calculatorService.add(parseNumbers(numbers));
     }
 
@@ -40,14 +40,14 @@ public class CalculatorResource {
     @GET
     @Timed
     @Path("/subtract/{numbers:.*}")
-    public Long subtract(@PathParam("numbers") @DefaultValue("0") String numbers) {
+    public Long subtract(@PathParam("numbers") @DefaultValue("8/2") String numbers) {
         return calculatorService.subtract(parseNumbers(numbers));
     }
 
     @GET
     @Timed
     @Path("/multiply/{numbers:.*}")
-    public Long multiply(@PathParam("numbers") @DefaultValue("0") String numbers) {
+    public Long multiply(@PathParam("numbers") @DefaultValue("3/2") String numbers) {
         return calculatorService.multiply(parseNumbers(numbers));
     }
 }
