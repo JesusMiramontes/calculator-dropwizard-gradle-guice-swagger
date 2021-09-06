@@ -22,6 +22,19 @@ dependencies {
     // https://mvnrepository.com/artifact/com.diffplug.spotless/spotless-plugin-gradle
     implementation group: 'com.diffplug.spotless', name: 'spotless-plugin-gradle', version: '5.14.3'
 
+    // https://mvnrepository.com/artifact/io.dropwizard/dropwizard-assets
+    implementation group: 'io.dropwizard', name: 'dropwizard-assets', version: '2.0.25'
+
+    // https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-core
+    implementation group: 'io.swagger.core.v3', name: 'swagger-core', version: '2.1.10'
+
+    // https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-jaxrs2
+    implementation group: 'io.swagger.core.v3', name: 'swagger-jaxrs2', version: '2.1.10'
+
+    // https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-integration
+    implementation group: 'io.swagger.core.v3', name: 'swagger-integration', version: '2.1.10'
+
+
 }
 
 spotless {
