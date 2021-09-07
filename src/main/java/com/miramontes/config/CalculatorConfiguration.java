@@ -1,5 +1,5 @@
 /* (C) 2021 */
-package config;
+package com.miramontes.config;
 
 import io.dropwizard.Configuration;
 
