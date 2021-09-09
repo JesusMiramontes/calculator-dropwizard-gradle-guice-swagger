@@ -1,8 +1,8 @@
 /* (C) 2021 */
 package com.miramontes;
 
-import com.miramontes.modules.CalculatorModule;
 import com.miramontes.config.CalculatorConfiguration;
+import com.miramontes.modules.CalculatorModule;
 import io.dropwizard.Application;
 import io.dropwizard.assets.AssetsBundle;
 import io.dropwizard.setup.Bootstrap;

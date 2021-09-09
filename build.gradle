@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "com.diffplug.spotless" version "5.12.4"
+    id "com.github.johnrengelman.shadow" version "5.1.0"
 }
 
 group 'org.example'
@@ -62,3 +63,8 @@ spotless {
     }
 }
 
+shadowJar {
+    manifest {
+        attributes 'Main-Class': 'com.miramontes.CalculatorApplication'
+    }
+}
