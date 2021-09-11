@@ -2,3 +2,7 @@ server:
 #  rootPath: /api/
   applicationContextPath: /
   type: simple
+
+redis:
+  hostname: localhost
+  port: 6379

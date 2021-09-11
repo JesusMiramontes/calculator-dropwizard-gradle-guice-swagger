@@ -35,6 +35,8 @@ dependencies {
     // https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-integration
     implementation group: 'io.swagger.core.v3', name: 'swagger-integration', version: '2.1.10'
 
+    // https://mvnrepository.com/artifact/redis.clients/jedis
+    implementation group: 'redis.clients', name: 'jedis', version: '3.7.0'
 
 }
 
