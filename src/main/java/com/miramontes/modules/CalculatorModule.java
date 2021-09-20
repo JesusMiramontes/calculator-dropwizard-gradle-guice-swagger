@@ -16,12 +16,9 @@ public class CalculatorModule extends DropwizardAwareModule<CalculatorConfigurat
     }
 
     @Provides
-    public JedisPool provideJedisPool(CalculatorConfiguration applicationConfiguration)
-    {
+    public JedisPool provideJedisPool(CalculatorConfiguration applicationConfiguration) {
         RedisConfiguration redisConfig = applicationConfiguration.getRedis();
         return new JedisPool(
-                new JedisPoolConfig(),
-                redisConfig.getHostname(),
-                redisConfig.getPort() );
+                new JedisPoolConfig(), redisConfig.getHostname(), redisConfig.getPort());
     }
 }

@@ -1,13 +1,11 @@
 version: "3"
 services:
   calculator-api-redis:
-    image: redis:latest
-    container_name: calculator-api-redis
-    restart: always
+    image: "redis:latest"
+    container_name: "calculator-api-redis"
     ports:
-      - 6379
-    expose:
-      - 6379
+      - 6379:6379
+    hostname: calculator-api-redis
   calculator-api-app:
     build:
       context: .
@@ -15,6 +13,8 @@ services:
       - 8080:8080
       - 8081:8081
     container_name: calculator-api-app
+    depends_on:
+      - calculator-api-redis
   calculator-api-gateway:
     image: calculator-gateway.jar:latest
     build:
@@ -24,3 +24,5 @@ services:
     expose:
       - 9000
     container_name: calculator-api-gateway
+    depends_on:
+      - calculator-api-redis

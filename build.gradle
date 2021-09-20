@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id "com.diffplug.spotless" version "5.12.4"
     id "com.github.johnrengelman.shadow" version "5.1.0"
+    id 'com.avast.gradle.docker-compose' version '0.7.1'
 }
 
 group 'org.example'
@@ -69,4 +70,8 @@ shadowJar {
     manifest {
         attributes 'Main-Class': 'com.miramontes.CalculatorApplication'
     }
+}
+
+dockerCompose {
+    useComposeFiles = ['docker-compose.yml']
 }

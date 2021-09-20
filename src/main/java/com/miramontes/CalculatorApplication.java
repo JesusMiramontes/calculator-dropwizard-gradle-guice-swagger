@@ -15,15 +15,23 @@ import io.swagger.v3.oas.models.servers.Server;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import ru.vyarus.dropwizard.guice.GuiceBundle;
 
 public class CalculatorApplication extends Application<CalculatorConfiguration> {
+
+    private final Logger LOG = LoggerFactory.getLogger(CalculatorApplication.class);
+
     @Override
     public void run(CalculatorConfiguration configuration, Environment environment)
             throws Exception {
         environment
                 .jersey()
                 .register(new OpenApiResource().openApiConfiguration(getOpenApiConfiguration()));
+        LOG.info(
+                "!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! >" + configuration.getRedis().getHostname() + "< !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
     }
 
     public static void main(String[] args) throws Exception {
