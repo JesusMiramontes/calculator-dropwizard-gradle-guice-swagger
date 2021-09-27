@@ -12,6 +12,7 @@ services:
     ports:
       - 8080:8080
       - 8081:8081
+      - 3030:3030
     container_name: calculator-api-app
     depends_on:
       - calculator-api-redis
@@ -26,3 +27,17 @@ services:
     container_name: calculator-api-gateway
     depends_on:
       - calculator-api-redis
+  calculator-api-prometheus:
+    image: prom/prometheus
+    ports:
+      - 9090:9090
+    volumes:
+      - "./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml"
+    container_name: calculator-api-prometheus
+  calculator-api-grafana:
+    image: grafana/grafana:latest
+    ports:
+      - 3000:3000
+    depends_on:
+      - calculator-api-prometheus
+    container_name: calculator-api-grafana
