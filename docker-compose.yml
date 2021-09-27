@@ -16,10 +16,9 @@ services:
     container_name: calculator-api-app
     depends_on:
       - calculator-api-redis
+    restart: always
   calculator-api-gateway:
     image: calculator-gateway.jar:latest
-    build:
-      context: .
     ports:
       - 9000:9000
     expose:

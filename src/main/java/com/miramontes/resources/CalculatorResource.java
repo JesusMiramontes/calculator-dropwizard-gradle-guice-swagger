@@ -2,6 +2,7 @@
 package com.miramontes.resources;
 
 import com.codahale.metrics.annotation.Timed;
+import com.miramontes.CalculatorApplication;
 import com.miramontes.services.CalculatorService;
 import java.util.Arrays;
 import java.util.List;
@@ -10,6 +11,9 @@ import javax.inject.Inject;
 import javax.inject.Singleton;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 
@@ -17,6 +21,8 @@ import redis.clients.jedis.JedisPool;
 @Singleton
 @Produces(MediaType.TEXT_PLAIN)
 public class CalculatorResource {
+
+    private final Logger LOG = LoggerFactory.getLogger(CalculatorResource.class);
 
     @Inject private CalculatorService calculatorService;
 
@@ -70,10 +76,17 @@ public class CalculatorResource {
     @GET
     @Timed
     @Path("/multiply/{numbers:.*}")
-    public Long multiply(@PathParam("numbers") @DefaultValue("3/2") String numbers) {
+    public Long multiply(@PathParam("numbers") @DefaultValue("3/2") String numbers) throws InterruptedException {
         Jedis jedis = jedisPool.getResource();
 
         if (!jedis.exists("M" + numbers)) {
+            LOG.info("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^SLEEPING^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
+            Thread.sleep(5000);
+            StringBuilder stringBuilder = new StringBuilder();
+            for (int i = 0; i < 9999; i++) {
+                stringBuilder.append("A");
+                LOG.info(stringBuilder.toString());
+            }
             jedis.set(
                     "M" + numbers,
                     String.valueOf(calculatorService.multiply(parseNumbers(numbers))));
